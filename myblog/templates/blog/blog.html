@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Мини-блог</title>
+</head>
+<body>
+    {% for post in post_list %}
+        {{ post.title }}
+        {{ post.description }}
+        {{ post.author }}
+        {{ post.date }}
+    {% endfor %}
+</body>
+</html>
