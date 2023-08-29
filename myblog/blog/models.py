@@ -7,7 +7,7 @@ class Post(models.Model):
     title = models.CharField('Заголовок поста', max_length=100)
     description = models.TextField('Текст записи')
     author = models.CharField('Имя автора', max_length=100)
-    date = models.DateField('Дата публикации')
+    date = models.DateTimeField('Дата публикации')
     img = models.ImageField('Изображение', upload_to='image/%Y')
 
     def __str__(self):
@@ -33,3 +33,7 @@ class Comment(models.Model):
         verbose_name_plural = 'Комментарии'
 
 
+class Likes(models.Model):
+    '''Лайки'''
+    ip = models.CharField('IP-адресс', max_length=100)
+    pos = models.ForeignKey(Post, verbose_name='Публикация', on_delete=models.CASCADE)

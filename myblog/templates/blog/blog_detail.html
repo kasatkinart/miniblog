@@ -15,25 +15,34 @@
 		<div id="navigation">
 			<ul>
 			    <li><a href="/" class="active">Главная</a></li>
-			    <li><a href="/admin">Админ панель</a></li>
 
 			</ul>
 		</div>
+
 
 		<div id="main">
 			<div id="content" class="left">
 
 				<div class="projects">
 					<h3>{{ post.title }}</h3>
-                  <p align="center"><img src="{{ post.img.url }}" width="50%" alt="" /></a></p>
+					<b>Дата публикации:</b> {{ post.date }}
+                  <p align="center"><img src="{{ post.img.url }}" width="80%" alt="" /></a></p>
 					<div class="item">
 						<div class="text left">
 							<p>{{ post.description}}</p>
-							<p>Автор:  {{ post.author}}</p>
+							<p><b>Автор:</b> {{ post.author}}</p>
 						</div>
 						<div class="cl">&nbsp;</div>
 					</div>
 				</div>
+			</div>
+
+			<div>
+				<br>
+				<p>Понравилось: {{ post.likes_set.all.count }}</p>
+				<br>
+				<a href="{% url 'add_likes' post.id %}">Нравится</a>
+				<a href="{% url 'del_likes' post.id %}">Не нравится</a>
 			</div>
 
 			<div class="form-comment">
@@ -78,7 +87,7 @@
 	</div>
 
 	<div id="footer">
-		<p class="copy right">Copyright &copy;  2022 </p>
+		<p class="copy right">Copyright &copy;  2023 </p>
 	</div>
 </div>
 </body>
