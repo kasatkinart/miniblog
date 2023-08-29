@@ -5,7 +5,7 @@ from django.db import models
 class Post(models.Model):
     '''Данные о посте '''
     title = models.CharField('Заголовок поста', max_length=100)
-    descriotion = models.TextField('Текст записи')
+    description = models.TextField('Текст записи')
     author = models.CharField('Имя автора', max_length=100)
     date = models.DateField('Дата публикации')
 
