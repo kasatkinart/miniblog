@@ -248,5 +248,14 @@ textarea {
     border-radius: 15px;
 }
 
+.inside {
+    padding: 20px;
+    offset-distance: 30px;
+    margin: 20px;
+    font-size: 20px;
+    background: white;
+    color: black;
+}
+
 
 

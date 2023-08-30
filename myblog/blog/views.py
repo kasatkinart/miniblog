@@ -47,16 +47,16 @@ class AddLikes(View):
         ip_client = get_client_ip(request)
         try:
             Likes.objects.get(ip=ip_client, pos_id=pk)
+            return redirect(f'/{pk}')
         except:
             new_like = Likes()
             new_like.ip = ip_client
             new_like.pos_id = int(pk)
             new_like.save()
-        finally:
             return redirect(f'/{pk}')
 
 
-class DelLike(View):
+class DelLikes(View):
     def get(self, request, pk):
         ip_client = get_client_ip(request)
         try:
@@ -67,3 +67,5 @@ class DelLike(View):
             return redirect(f'/{pk}')
 
 
+def show_about_page(request):
+    return render(request, 'blog/about.html')
